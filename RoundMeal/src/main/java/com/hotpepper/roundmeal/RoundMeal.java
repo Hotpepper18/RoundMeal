@@ -22,12 +22,15 @@ import java.util.stream.Collectors;
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod("RoundMeal")
 public class RoundMeal {
-
+    public static final String MOD_ID = "RoundMeal";
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
 
     public RoundMeal() {
         IEventBus modEventBus =  FMLJavaModLoadingContext.get().getModEventBus();
+
+        ModItems.register(modEventBus);
+
         // Register the setup method for modloading
         modEventBus.addListener(this::setup);
         // Register the enqueueIMC method for modloading
